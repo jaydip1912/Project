@@ -1,0 +1,81 @@
+   id: {type:String},
+        product_id:{type:mongoose.Schema.types.ObjectId} ,
+        "customer_id": ,
+        "inquiryDate":{type:Date} ,//date
+        "quotationDate": {type:Date},//date
+        "CoverLetter":{type:String},
+        "TermAndCondition": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam nisi quasi molestiae architecto officia, veritatis magni voluptatum non reiciendis dolore dicta illum amet, omnis at dolores eos, temporibus sequi natus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam nisi quasi molestiae architecto officia, veritatis magni voluptatum non reiciendis dolore dicta illum amet, omnis at dolores eos, temporibus sequi natus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam nisi quasi molestiae architecto officia, veritatis magni voluptatum non reiciendis dolore dicta illum amet, omnis at dolores eos, temporibus sequi natus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam nisi quasi molestiae architecto officia, veritatis magni voluptatum non reiciendis dolore dicta illum amet, omnis at dolores eos, temporibus sequi natus.",
+        "inquiryNo": "1",
+        "inq_number": "10008",
+        "status": "active",
+        "deletedAt": null,
+        "inquiry_status": "Approved",
+        "approval_date": "2025-01-27T10:46:32.576Z",
+        "createdAt": "2025-01-20T06:33:20.505Z",
+        "updatedAt": "2025-01-27T10:46:32.579Z",
+        "productDetails": {
+            "product_name": "SINGLE GIRDER TYPE GOLIATH crene",
+            "description": "SINGLE GIRDER TYPE GOLIATH CRANE",
+            "image": "/uploads/products/a5997.jpg"
+        },
+        "customerDetails": {
+            "firstName": "MainUser",
+            "lastName": "react",
+            "email": "admin1@admin.com",
+            "phone": "8112233445",
+            "address": "India",
+            "status": "active"
+        },
+
+        "lineitemDetails": [
+            {
+                "id": "30a45fea-6331-47b4-bcd2-9ea2a5aca631",
+                "inquiry_id": "60d194c2-6ac7-46c8-a6c6-db8beb931d6f",
+                "description": "Transportation charges",
+                "quantity": 40,
+                "price": "45",
+                "amount": "1800",
+                "createdAt": "2025-01-27T10:46:32.660Z",
+                "updatedAt": "2025-01-27T10:46:32.660Z"
+            },
+            {
+                "id": "fda05899-1324-4416-b95a-8dfd550e0724",
+                "inquiry_id": "60d194c2-6ac7-46c8-a6c6-db8beb931d6f",
+                "description": "Added New 3",
+                "quantity": 10,
+                "price": "50.589",
+                "amount": "505.89",
+                "createdAt": "2025-01-27T10:46:32.659Z",
+                "updatedAt": "2025-01-27T10:46:32.659Z"
+            },
+            {
+                "id": "b231c1ea-111b-4da6-a59c-186d443ed61a",
+                "inquiry_id": "60d194c2-6ac7-46c8-a6c6-db8beb931d6f",
+                "description": "Added New 2",
+                "quantity": 3,
+                "price": "0.15",
+                "amount": "0.44999999999999996",
+                "createdAt": "2025-01-27T10:46:32.658Z",
+                "updatedAt": "2025-01-27T10:46:32.658Z"
+            },
+            {
+                "id": "30852a39-4099-4dae-8279-bc8f051145f9",
+                "inquiry_id": "60d194c2-6ac7-46c8-a6c6-db8beb931d6f",
+                "description": "Added New 1",
+                "quantity": 7,
+                "price": "4.4",
+                "amount": "30.800000000000004",
+                "createdAt": "2025-01-27T10:46:32.657Z",
+                "updatedAt": "2025-01-27T10:46:32.657Z"
+            },
+            {
+                "id": "3924c29c-3597-49c7-8091-0939f11f5bf4",
+                "inquiry_id": "60d194c2-6ac7-46c8-a6c6-db8beb931d6f",
+                "description": "10.0 TON.X11.5 MTR.SINGLE GIRDER TYPE GOLIATH CRANE",
+                "quantity": 10,
+                "price": "100",
+                "amount": "1000",
+                "createdAt": "2025-01-27T10:46:32.639Z",
+                "updatedAt": "2025-01-27T10:46:32.639Z"
+            }
+        ]
