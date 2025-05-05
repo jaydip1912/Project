@@ -1,5 +1,5 @@
 const express = require("express");
-const LineItemModel = require("../models/LineItem");
+const LineItemModel = require("../models/lineItems");
 const router = express.Router();
 
 router.get("/lineItem", async (req, res) => {

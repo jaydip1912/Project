@@ -4,14 +4,15 @@ const port = 3001;
 const cors = require("cors");
 const morgan = require("morgan");
 const { connectDB } = require("./config/db");
-const userRouter = require("./routes/userRoutes");
-const coverLetterRouter = require("./routes/coverLetter");
-const customerRouter = require("./routes/customerRouter");
-const inquiryRouter = require("./routes/enquiryRouter");
+const userRouter = require("./routes/usersRoutes");
+const coverLetterRouter = require("./routes/coverLettersRouter");
+const customerRouter = require("./routes/customersRouter");
+const inquiryRouter = require("./routes/inquirysRouter");
 const inquiryDetailsRouter = require("./routes/inquiryDetailsRouter");
-const lineItemRouter = require("./routes/lineItemRouter");
+const lineItemRouter = require("./routes/lineItemsRouter");
 const productDetailsRouter = require("./routes/productDetailsRouter");
-const salesPersonRouter = require("./routes/salesPersonRouter");
+const salesPersonRouter = require("./routes/salesPersonsRouter");
+const rolesRouter = require("./routes/rolesRouter");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
@@ -28,6 +29,7 @@ app.use("/", inquiryDetailsRouter);
 app.use("/", lineItemRouter);
 app.use("/", productDetailsRouter);
 app.use("/", salesPersonRouter);
+app.use("/", rolesRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");

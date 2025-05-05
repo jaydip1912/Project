@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const CoverLetterModel = require("../models/coverLetter");
+const CoverLetterModel = require("../models/coverLetters");
 
 router.get("/coverLetter", async (req, res) => {
   const coverLetterFromDB = await CoverLetterModel.find({});
