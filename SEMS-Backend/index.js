@@ -4,6 +4,7 @@ const port = 3001;
 const cors = require("cors");
 const morgan = require("morgan");
 const { connectDB } = require("./config/db");
+const authRouter = require("./routes/authRouter");
 const userRouter = require("./routes/usersRoutes");
 const coverLetterRouter = require("./routes/coverLettersRouter");
 const customerRouter = require("./routes/customersRouter");
@@ -21,6 +22,7 @@ app.use(morgan());
 connectDB(); // Connect to MongoDB
 app.use(express.json());
 
+app.use("/", authRouter);
 app.use("/", userRouter);
 app.use("/", coverLetterRouter);
 app.use("/", customerRouter);
