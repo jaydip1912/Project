@@ -14,6 +14,7 @@ const lineItemRouter = require("./routes/lineItemsRouter");
 const productDetailsRouter = require("./routes/productDetailsRouter");
 const salesPersonRouter = require("./routes/salesPersonsRouter");
 const rolesRouter = require("./routes/rolesRouter");
+const auth = require("./auth");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
@@ -22,21 +23,21 @@ app.use(morgan());
 connectDB(); // Connect to MongoDB
 app.use(express.json());
 
-app.use("/", authRouter);
-app.use("/", userRouter);
-app.use("/", coverLetterRouter);
-app.use("/", customerRouter);
-app.use("/", inquiryRouter);
-app.use("/", inquiryDetailsRouter);
-app.use("/", lineItemRouter);
-app.use("/", productDetailsRouter);
-app.use("/", salesPersonRouter);
-app.use("/", rolesRouter);
+app.use("/", auth, authRouter);
+app.use("/", auth, userRouter);
+app.use("/", auth, coverLetterRouter);
+app.use("/", auth, customerRouter);
+app.use("/", auth, inquiryRouter);
+app.use("/", auth, inquiryDetailsRouter);
+app.use("/", auth, lineItemRouter);
+app.use("/", auth, productDetailsRouter);
+app.use("/", auth, salesPersonRouter);
+app.use("/", auth, rolesRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
 app.listen(port, () => {
-  console.log(`server is running on port ${port}`);
+  console.log(`server is running on Port ${port}`);
 });

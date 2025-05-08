@@ -23,4 +23,30 @@ router.post("/createCoverLetter", async (req, res) => {
   }
 });
 
+router.put("/updateCoverLetter", async (req, res) => {
+  try {
+    const body = req.body;
+    const id = req.query.id || req.params.id;
+    console.log("ID:", id);
+
+    const { coverLetterText } = body;
+    console.log("Cover Letter Text:", coverLetterText);
+    const updateCoverLetter = await CoverLetterModel.findByIdAndUpdate(
+      id,
+      { coverLetterText: coverLetterText },
+      { new: true }
+    );
+    if (!updateCoverLetter) {
+      return res.status(404).json({ message: "Cover letter not found" });
+    }
+    console.log("Updated Cover Letter:", updateCoverLetter);
+
+    res.send(updateCoverLetter);
+    // res.status(200).json(updateCoverLetter);
+  } catch (error) {
+    console.error("Error updating cover letter!", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
 module.exports = router;

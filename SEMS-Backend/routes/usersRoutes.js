@@ -6,28 +6,12 @@ const jwt = require("jsonwebtoken");
 
 const saltRounds = 10;
 
-const jwtSecret = "jwbsecretkey";
-
-const token = jwt.sign({ id: 1234567890 }, jwtSecret, { expiresIn: "120s" });
-console.log("token:", token);
+const jwtSecret = "jwttoken";
 
 router.get("/user", async (req, res) => {
   try {
-    const getToken = req.headers["authorization"];
-    if (!getToken) {
-      return res.status(401).json({ message: "No token provided" });
-    }
-    const token = getToken.split(" ")[1];
-    console.log("token:", token);
-    console.log("jwtSecret:", jwtSecret);
 
-    const decoded = jwt.verify(token, jwtSecret);
-    const userId = decoded.id;
-    // console.log("decoded:", decoded);
-    if (!decoded) {
-      return res.status(401).json({ message: "Invalid token" });
-    }
-    const user = await UserModel.findById(decoded.id);
+    const user = await UserModel.find({});
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
@@ -45,30 +29,11 @@ router.get("/user", async (req, res) => {
   }
 });
 
-//     const usersFromDB = await UserModel.find({});
-//     res.send(usersFromDB);
-//   } catch (error) {
-//     if (error.name === "TokenExpiredError") {
-//       return res.status(401).json({ message: "Token expired" });
-//     }
-//     console.error("Error fetching user:", error);
-//     res.status(500).json({ message: "Internal server error" });
-//   }
-// });
 
 router.post("/createUser", async (req, res) => {
   try {
     const body = req.body;
-    const getToken = req.headers["authorization"];
-    if (!getToken) {
-      return res.status(401).json({ message: "No token provided" });
-    }
-    const token = getToken.split(" ")[1];
-    const decoded = jwt.verify(token, jwtSecret);
-    console.log("decoded:", decoded);
-    if (!decoded) {
-      return res.status(401).json({ message: "Invalid token" });
-    }
+  
     const { password, first_name, last_name, phone_number, email } = body;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
@@ -96,16 +61,16 @@ router.post("/createUser", async (req, res) => {
 router.delete("/deleteUser/", async (req, res) => {
   try {
     const id = req.params.id;
-    const getToken = req.headers["authorization"];
-    if (!getToken) {
-      return res.status(401).json({ message: "No token provided" });
-    }
-    const token = getToken.split(" ")[1];
-    const decoded = jwt.verify(token, jwtSecret);
-    console.log("decoded:", decoded);
-    if (!decoded) {
-      return res.status(401).json({ message: "Invalid token" });
-    }
+    // const getToken = req.headers["authorization"];
+    // if (!getToken) {
+    //   return res.status(401).json({ message: "No token provided" });
+    // }
+    // const token = getToken.split(" ")[1];
+    // const decoded = jwt.verify(token, jwtSecret);
+    // console.log("decoded:", decoded);
+    // if (!decoded) {
+    //   return res.status(401).json({ message: "Invalid token" });
+    // }
     const deleteUser = await UserModel.deleteOne({
       id: id,
     });
